@@ -1,6 +1,8 @@
-import '@/styles/globals.css'
+import '@/styles/index.scss'
 import type { AppProps } from 'next/app'
 import localFont from 'next/font/local'
+import { Provider } from 'react-redux'
+import store from '@/store/store'
 
 const NotoSans = localFont({
   src: [
@@ -33,13 +35,13 @@ const NotoSans = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Provider store={store}>
       <style jsx global>{`
         :root {
           --font-family-primary: ${NotoSans.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} />
-    </>
+    </Provider>
   )
 }

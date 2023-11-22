@@ -1,5 +1,8 @@
 import Head from 'next/head'
+import { useFetchAllBreedsQuery } from '@/api/getBreeds'
 export default function Home() {
+  const { data } = useFetchAllBreedsQuery({})
+  console.log('data', data)
   return (
     <>
       <Head>
