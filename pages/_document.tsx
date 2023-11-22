@@ -23,8 +23,10 @@ export default function Document() {
         />
       </Head>
       <body>
-        <Main />
-        <NextScript />
+        <div className="wrapper">
+          <Main />
+          <NextScript />
+        </div>
       </body>
     </Html>
   )

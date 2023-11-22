@@ -1,0 +1,13 @@
+@import "@/styles/variables/breakpoints";
+
+.baseContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1440rem;
+  margin: 0 auto;
+  padding: 0 64rem;
+
+  @media (width <= $mob) {
+    padding: 0 24rem;
+  }
+}
