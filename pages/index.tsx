@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { HomeContent } from '@/components/modules/Home'
 import dynamic from 'next/dynamic'
 import PageTransitionLayout from '@/components/ui/PageTransitionLayout'
 const HomeContentComponent = dynamic(
