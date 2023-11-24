@@ -1,11 +1,13 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useFetchCatsByBreedIdQuery } from '@/api/getBreeds'
+import { BreedContent } from '@/components/modules/Breed'
 
 const Index = ({ breedId }: { breedId: string }) => {
-  const { data } = useFetchCatsByBreedIdQuery({ breedId })
-  console.log(data)
-  return <h1>Hello </h1>
+  return (
+    <>
+      <BreedContent breedId={breedId} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {

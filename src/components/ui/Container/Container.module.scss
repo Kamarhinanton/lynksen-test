@@ -5,7 +5,8 @@
   width: 100%;
   max-width: 1440rem;
   margin: 0 auto;
-  padding: 0 64rem;
+  padding: 40rem 64rem;
+  min-height: 100vh;
 
   @media (width <= $mob) {
     padding: 0 24rem;

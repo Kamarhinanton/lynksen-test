@@ -2,7 +2,7 @@
 
 html {
   font-size: calc(100vw / 1440);
-  color: var(--secondary-color);
+  color: var(--white);
 
   @media (width <= $mob) {
     font-size: calc(100vw / 567);

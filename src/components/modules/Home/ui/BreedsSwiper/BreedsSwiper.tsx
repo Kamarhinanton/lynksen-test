@@ -1,18 +1,18 @@
 import React, { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import styles from './BreedSwiper.module.scss'
+import styles from './BreedsSwiper.module.scss'
 import { Autoplay } from 'swiper/modules'
 import { useFetchAllBreedsQuery } from '@/api/getBreeds'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const BreedSwiper: FC = () => {
+const BreedsSwiper: FC = () => {
   const { data } = useFetchAllBreedsQuery({})
 
   return (
     <Swiper
-      className={styles['swiperBreed']}
+      className={styles['breedsSwiper']}
       slidesPerView={'auto'}
       spaceBetween={30}
       loop={true}
@@ -31,7 +31,7 @@ const BreedSwiper: FC = () => {
             slide.name && (
               <SwiperSlide
                 key={slide.id}
-                className={styles['swiperBreed__slide']}
+                className={styles['breedsSwiper__slide']}
               >
                 <Link
                   href={{
@@ -52,4 +52,4 @@ const BreedSwiper: FC = () => {
   )
 }
 
-export default BreedSwiper
+export default BreedsSwiper

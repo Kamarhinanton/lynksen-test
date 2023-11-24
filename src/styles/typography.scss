@@ -1,4 +1,10 @@
-h1, h2, h3, .h1, .h2, .h3 {
+h1, .h1 {
+  font-size: 80rem;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+h2, h3, .h2, .h3 {
   font-size: 24rem;
   line-height: 150%;
   font-weight: 700;
@@ -10,7 +16,7 @@ h4, h5, h6, .h4, .h5, .h6 {
   font-weight: 700;
 }
 
-p {
+p, .p {
   font-size: 16rem;
   font-weight: 400;
   line-height: 100%;
@@ -23,5 +29,14 @@ p {
     font-size: 12rem;
     line-height: 150%;
     font-weight: 400;
+  }
+}
+
+a {
+  color: var(--secondary-color);
+  transition: 0.2s ease;
+
+  &:hover {
+    color: var(--primary-color);
   }
 }

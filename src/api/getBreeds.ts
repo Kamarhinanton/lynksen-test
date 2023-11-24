@@ -7,6 +7,11 @@ interface CatBreed {
   description: string
 }
 
+interface Cat {
+  id: string
+  url: string
+}
+
 export const breedsApi = createApi({
   reducerPath: 'breedsApi',
   baseQuery: fetchBaseQuery({
@@ -34,7 +39,7 @@ export const breedsApi = createApi({
         breedId,
       }: {
         limit?: number
-        breedId: string
+        breedId?: string
       }) => ({
         url: '/images/search',
         params: {
@@ -42,6 +47,12 @@ export const breedsApi = createApi({
           breed_id: breedId,
         },
       }),
+      transformResponse: (response: Cat[]) => {
+        return response.map((cat) => ({
+          id: cat.id,
+          url: cat.url,
+        }))
+      },
     }),
   }),
 })
