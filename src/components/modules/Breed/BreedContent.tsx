@@ -12,7 +12,7 @@ import AnimatedElement from '@/components/ui/AnimatedElement/AnimatedElement'
 
 const BreedContent = ({ breedId }: { breedId: string }) => {
   return (
-    <Container className={styles['containerMod']}>
+    <Container className={styles['containerModBreed']}>
       <h2 className="h2">
         <AnimatedText>Breed page</AnimatedText>
       </h2>
