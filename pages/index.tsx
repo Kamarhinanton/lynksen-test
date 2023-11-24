@@ -1,12 +1,20 @@
 import Head from 'next/head'
 import { HomeContent } from '@/components/modules/Home'
+import dynamic from 'next/dynamic'
+import PageTransitionLayout from '@/components/ui/PageTransitionLayout'
+const HomeContentComponent = dynamic(
+  () => import('@/components/modules/Home/ui/HomeContent'),
+  { ssr: false },
+)
 export default function Home() {
   return (
     <>
       <Head>
         <title>lynksen-test</title>
       </Head>
-      <HomeContent />
+      <PageTransitionLayout>
+        <HomeContentComponent />
+      </PageTransitionLayout>
     </>
   )
 }

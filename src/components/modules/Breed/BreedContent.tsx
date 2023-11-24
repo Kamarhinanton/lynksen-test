@@ -7,21 +7,30 @@ const BreedIdSwiperComponent = dynamic(
 )
 import styles from './BreedContent.module.scss'
 import Link from 'next/link'
+import AnimatedText from '@/components/ui/AnimatedText/AnimatedText'
+import AnimatedElement from '@/components/ui/AnimatedElement/AnimatedElement'
 
 const BreedContent = ({ breedId }: { breedId: string }) => {
   return (
     <Container className={styles['containerMod']}>
-      <h2 className="h2">Breed page</h2>
-      <Link
-        className="p"
-        href={{
-          pathname: `/`,
-        }}
-      >
-        Back home
-      </Link>
+      <h2 className="h2">
+        <AnimatedText>Breed page</AnimatedText>
+      </h2>
+      <AnimatedElement>
+        <Link
+          className="p"
+          href={{
+            pathname: `/`,
+          }}
+          scroll={false}
+        >
+          Back home
+        </Link>
+      </AnimatedElement>
       <div className={styles['swiperWrapper']}>
-        <BreedIdSwiperComponent breedId={breedId} />
+        <AnimatedElement>
+          <BreedIdSwiperComponent breedId={breedId} />
+        </AnimatedElement>
       </div>
     </Container>
   )

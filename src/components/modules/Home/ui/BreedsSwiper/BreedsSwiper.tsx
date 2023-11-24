@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import styles from './BreedsSwiper.module.scss'
-import { Autoplay } from 'swiper/modules'
 import { useFetchAllBreedsQuery } from '@/api/getBreeds'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,10 +15,6 @@ const BreedsSwiper: FC = () => {
       slidesPerView={'auto'}
       spaceBetween={30}
       loop={true}
-      // autoplay={{
-      //   delay: 2000,
-      // }}
-      // modules={[Autoplay]}
       speed={2000}
     >
       {data &&
@@ -34,6 +29,7 @@ const BreedsSwiper: FC = () => {
                 className={styles['breedsSwiper__slide']}
               >
                 <Link
+                  scroll={false}
                   href={{
                     pathname: `breeds/${slide.id}`,
                   }}

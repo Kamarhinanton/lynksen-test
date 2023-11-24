@@ -1,12 +1,17 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { BreedContent } from '@/components/modules/Breed'
+import dynamic from 'next/dynamic'
+import PageTransitionLayout from '@/components/ui/PageTransitionLayout'
+const BreedContentComponent = dynamic(
+  () => import('@/components/modules/Breed/BreedContent'),
+  { ssr: false },
+)
 
 const Index = ({ breedId }: { breedId: string }) => {
   return (
-    <>
-      <BreedContent breedId={breedId} />
-    </>
+    <PageTransitionLayout>
+      <BreedContentComponent breedId={breedId} />
+    </PageTransitionLayout>
   )
 }
 
