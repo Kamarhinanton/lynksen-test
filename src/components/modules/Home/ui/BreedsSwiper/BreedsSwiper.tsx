@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import styles from './BreedsSwiper.module.scss'
 import { useFetchAllBreedsQuery } from '@/api/getBreeds'
 import Image from 'next/image'
 import Link from 'next/link'
+import 'swiper/css'
+import styles from './BreedsSwiper.module.scss'
 
 const BreedsSwiper: FC = () => {
   const { data } = useFetchAllBreedsQuery({})
