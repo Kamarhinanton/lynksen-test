@@ -1,3 +1,5 @@
+@import "@/styles/variables/breakpoints";
+
 .containerMod{
   display: flex;
   justify-content: center;
@@ -7,4 +9,7 @@
 .swiperWrapper{
   margin: 12rem -64rem 0;
   height: 400rem;
+  @media (width <= $mob) {
+    margin: 12rem -24rem 0;
+  }
 }

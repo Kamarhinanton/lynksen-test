@@ -3,7 +3,17 @@
   height: 400rem;
 
   &__slide {
+    position: relative;
     width: 300rem;
     height: 400rem;
+
+    &_description {
+      position: absolute;
+      background-color: var(--secondary-color);
+      padding: 10rem;
+      z-index: 2;
+      top: 0;
+      left: 0;
+    }
   }
 }

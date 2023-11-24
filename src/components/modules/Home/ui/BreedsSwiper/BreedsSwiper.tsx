@@ -8,6 +8,9 @@ import Link from 'next/link'
 
 const BreedsSwiper: FC = () => {
   const { data } = useFetchAllBreedsQuery({})
+  const getRandomCat = () => {
+    console.log('hello')
+  }
 
   return (
     <Swiper
@@ -28,6 +31,12 @@ const BreedsSwiper: FC = () => {
                 key={slide.id}
                 className={styles['breedsSwiper__slide']}
               >
+                <p
+                  onClick={getRandomCat}
+                  className={styles['breedsSwiper__slide_description']}
+                >
+                  Get random cat
+                </p>
                 <Link
                   scroll={false}
                   href={{
