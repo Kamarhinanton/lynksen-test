@@ -1,9 +1,8 @@
 import React from 'react'
+import { useFetchCatsByBreedIdQuery } from '@/api/getBreeds'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
-import { useFetchCatsByBreedIdQuery } from '@/api/getBreeds'
 
-import 'swiper/css'
 import styles from './BreedIdSwiper.module.scss'
 
 const BreedIdSwiper = ({ breedId }: { breedId: string }) => {

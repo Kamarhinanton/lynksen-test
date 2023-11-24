@@ -1,3 +1,4 @@
+import 'swiper/css'
 import '@/styles/index.scss'
 import type { AppProps } from 'next/app'
 import localFont from 'next/font/local'
@@ -5,6 +6,7 @@ import { Provider } from 'react-redux'
 import store from '@/store/store'
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
+import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
 
 const NotoSans = localFont({
   src: [
@@ -38,6 +40,8 @@ const NotoSans = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const pageKey = router.asPath
+  useNextCssRemovalPrevention()
+
   return (
     <Provider store={store}>
       <style jsx global>{`
