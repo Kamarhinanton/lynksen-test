@@ -1,12 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-interface CatBreed {
-  id: string
-  name: string
-  image: { height: number; id: string; url: string; width: number }
-  description: string
-}
-
 interface Cat {
   id: string
   url: string
@@ -22,17 +15,6 @@ export const breedsApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    fetchAllBreeds: builder.query({
-      query: () => '/breeds',
-      transformResponse: (response: CatBreed[]) => {
-        return response.map(({ id, name, image, description }) => ({
-          id,
-          name,
-          image,
-          description,
-        }))
-      },
-    }),
     fetchCatsByBreedId: builder.query({
       query: ({
         limit = 10,
@@ -57,4 +39,4 @@ export const breedsApi = createApi({
   }),
 })
 
-export const { useFetchAllBreedsQuery, useFetchCatsByBreedIdQuery } = breedsApi
+export const { useFetchCatsByBreedIdQuery } = breedsApi

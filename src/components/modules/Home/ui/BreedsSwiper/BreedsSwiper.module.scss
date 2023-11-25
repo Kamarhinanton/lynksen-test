@@ -8,6 +8,7 @@
     height: 400rem;
 
     &_description {
+      cursor: pointer;
       position: absolute;
       background-color: var(--secondary-color);
       padding: 10rem;
