@@ -11,10 +11,14 @@
       cursor: pointer;
       position: absolute;
       background-color: var(--secondary-color);
+      color: var(--white);
       padding: 10rem;
       z-index: 2;
       top: 0;
       left: 0;
+      &:disabled{
+        background-color: var(--grey);
+      }
     }
   }
 }

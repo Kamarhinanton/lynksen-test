@@ -6,6 +6,7 @@ import SlideImage from '@/components/modules/Home/ui/SlideImage/SlideImage'
 import { SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 import axios from 'axios'
+import classNames from 'classnames'
 
 type Breed = {
   id: string
@@ -15,7 +16,8 @@ type Breed = {
 }
 
 const BreedsSwiper: FC = () => {
-  const [catImages, setCatImages] = useState<Breed[]>()
+  const [catImages, setCatImages] = useState<Breed[]>([])
+  const [loadingMap, setLoadingMap] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const fetchCatImages = async () => {
@@ -46,6 +48,7 @@ const BreedsSwiper: FC = () => {
             }
           })
         setCatImages(breedImages)
+        setLoadingMap({})
       } catch (error) {
         console.error('Error fetching cat images:', error)
       }
@@ -55,6 +58,7 @@ const BreedsSwiper: FC = () => {
 
   const getRandomImage = async (id: string) => {
     try {
+      setLoadingMap((prevLoadingMap) => ({ ...prevLoadingMap, [id]: true }))
       const response = await axios.get(
         `https://api.thecatapi.com/v1/images/search`,
         {
@@ -68,9 +72,7 @@ const BreedsSwiper: FC = () => {
           },
         },
       )
-
       const randomImage = response.data[0]?.url
-
       setCatImages(
         (prevCatImages) =>
           prevCatImages?.map((breed) =>
@@ -79,6 +81,8 @@ const BreedsSwiper: FC = () => {
       )
     } catch (error) {
       console.error('Error fetching random image:', error)
+    } finally {
+      setLoadingMap((prevLoadingMap) => ({ ...prevLoadingMap, [id]: false }))
     }
   }
 
@@ -93,12 +97,16 @@ const BreedsSwiper: FC = () => {
       {catImages &&
         catImages.map((slide) => (
           <SwiperSlide key={slide.id} className={styles['breedsSwiper__slide']}>
-            <p
+            <button
               onClick={() => getRandomImage(slide.id)}
-              className={styles['breedsSwiper__slide_description']}
+              className={classNames(
+                'p',
+                styles['breedsSwiper__slide_description'],
+              )}
+              disabled={loadingMap[slide.id]}
             >
-              Get random cat
-            </p>
+              {loadingMap[slide.id] ? 'Loading...' : 'Get random cat'}
+            </button>
             <Link
               scroll={false}
               href={{
