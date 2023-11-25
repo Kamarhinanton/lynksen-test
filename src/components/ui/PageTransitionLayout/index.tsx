@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
-const variants = {
+export const variants = {
   initial: {
     opacity: 0,
     transition: {

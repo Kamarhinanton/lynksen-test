@@ -7,6 +7,7 @@ import { SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 import axios from 'axios'
 import classNames from 'classnames'
+import { AnimatePresence } from 'framer-motion'
 
 type Breed = {
   id: string
@@ -114,7 +115,15 @@ const BreedsSwiper: FC = () => {
               }}
             >
               {slide.image.url && (
-                <SlideImage id={slide.id} url={slide.image.url} />
+                <AnimatePresence>
+                  {loadingMap[slide.id] ? null : (
+                    <SlideImage
+                      key={slide.id}
+                      id={slide.id}
+                      url={slide.image.url}
+                    />
+                  )}
+                </AnimatePresence>
               )}
             </Link>
           </SwiperSlide>
