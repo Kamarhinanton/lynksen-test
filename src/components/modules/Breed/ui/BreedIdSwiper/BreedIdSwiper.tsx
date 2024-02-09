@@ -26,6 +26,7 @@ const BreedIdSwiper = ({ breedId }: { breedId: string }) => {
               alt={'picture'}
               fill={true}
               objectFit={'cover'}
+              priority={true}
             />
           </SwiperSlide>
         ))}
